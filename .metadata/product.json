@@ -1,0 +1,31 @@
+{
+    "name": "MCU_PLUS_SDK_AM62x",
+    "displayName": "MCU+ SDK for AM62x",
+    "version": "08.06.00",
+    "documentationPath": "../docs",
+    "includePaths": [
+        "../source",
+    ],
+    "components": [
+        "/kernel/dpl",
+        "/drivers/drivers",
+        "/board/board",
+    ],
+    "devices": [
+        "AM62x",
+    ],
+    "contexts": {
+        "AM62x": [
+            "m4fss0-0",
+            "r5fss0-0",
+        ],
+    },
+    "pinmuxUIOptions": {
+        "group": "merged",
+        "hidePeripheralTab": false,
+        "showPinTable": true,
+        "showSignals": true,
+        "showUsed": true
+    },
+    "minToolVersion" : "1.13.0"
+}

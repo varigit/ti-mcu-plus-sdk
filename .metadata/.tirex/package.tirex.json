@@ -1,0 +1,18 @@
+[
+    {
+        "metadataVersion": "3.01.00",
+        "id": "com.ti.MCU_PLUS_SDK_AM62X",
+        "name": "MCU+ SDK for AM62x",
+        "rootCategory": [ "MCU+ SDK", "MCU+ SDK for AM62x" ],
+        "version": "08.06.00.18",
+        "type": "software",
+        "image": "./mcu_plus_sdk.png",
+        "devices": ["AM62x"],
+        "tags": ["SDK", "Baremetal", "FreeRTOS"],
+        "description": "Welcome to MCU+ SDK for AM62x. This SDK contains examples, libraries and tools to develop RTOS and no-RTOS based applications for ARM R5F, ARM M4F CPUs and related peripherals.",
+        "dependencies": [
+            { "packageId": "sysconfig", "version": "1.13.0", "require": "mandatory" },
+            { "packageId": "ti_cgt_tiarmclang", "version": "2.1.2", "require": "mandatory" }
+        ]
+    }
+]

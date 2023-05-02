@@ -198,6 +198,8 @@ $(OUTNAME): syscfg $(SYSCFG_GEN_FILES) $(OBJS) $(LNK_FILES) $(LIBS_NAME)
 	@echo  .
 	@echo  Linking: am62x:r5fss0-0:freertos:ti-arm-clang $@ ...
 	$(LNK) $(LNKOPTFLAGS) $(LFLAGS) $(LIBS_PREBUILD_PATH) $(LIBS_PATH) -Wl,-m=$(basename $@).map -o $@ $(addprefix $(OBJDIR), $(OBJS)) $(LIBS_PREBUILD) $(LIBS) $(LNK_FILES)
+	$(RM) am62-wkup-r5f0_0-fw
+	$(STRIP) -p $@ -o=am62-wkup-r5f0_0-fw
 	@echo  Linking: am62x:r5fss0-0:freertos:ti-arm-clang $@ Done !!!
 	@echo  .
 
@@ -205,6 +207,7 @@ clean:
 	@echo  Cleaning: am62x:r5fss0-0:freertos:ti-arm-clang $(OUTNAME) ...
 	$(RMDIR) $(OBJDIR)
 	$(RM) $(OUTNAME)
+	$(RM) am62-wkup-r5f0_0-fw
 	$(RM) $(BOOTIMAGE_NAME)
 	$(RM) $(BOOTIMAGE_NAME_XIP)
 	$(RM) $(BOOTIMAGE_NAME_SIGNED)
@@ -217,6 +220,7 @@ clean:
 scrub:
 	@echo  Scrubing: am62x:r5fss0-0:freertos:ti-arm-clang mcspi_performance_32bit ...
 	$(RMDIR) obj
+	$(RM) am62-wkup-r5f0_0-fw
 ifeq ($(OS),Windows_NT)
 	$(RM) \*.out
 	$(RM) \*.map

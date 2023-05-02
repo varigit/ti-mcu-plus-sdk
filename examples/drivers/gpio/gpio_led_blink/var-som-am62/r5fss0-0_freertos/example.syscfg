@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "r5fss0-0" --product "MCU_PLUS_SDK@07.03.01"
- * @versions {"tool":"1.12.0+2406"}
+ * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "r5fss0-0" --product "MCU_PLUS_SDK_AM62x@08.06.00"
+ * @versions {"tool":"1.15.0+2826"}
  */
 
 /**
@@ -24,9 +24,10 @@ const mpu_armv78 = mpu_armv7.addInstance();
 /**
  * Write custom configuration values to the imported modules.
  */
-gpio1.$name                = "GPIO_LED";
-gpio1.pinDir               = "OUTPUT";
-gpio1.GPIO.gpioPin.$assign = "ball.A14";
+gpio1.$name                    = "GPIO_LED";
+gpio1.pinDir                   = "OUTPUT";
+gpio1.useMcuDomainPeripherals  = true;
+gpio1.MCU_GPIO.gpioPin.$assign = "ball.D6";
 
 debug_log.enableUartLog = true;
 debug_log.uartLog.$name = "CONFIG_UART0";
@@ -72,7 +73,7 @@ mpu_armv78.$name    = "HSM_RAM";
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-gpio1.GPIO.$suggestSolution = "GPIO1";
+gpio1.MCU_GPIO.$suggestSolution                  = "MCU_GPIO0";
 debug_log.uartLog.WKUP_UART.$suggestSolution     = "WKUP_USART0";
 debug_log.uartLog.WKUP_UART.RXD.$suggestSolution = "ball.B4";
 debug_log.uartLog.WKUP_UART.TXD.$suggestSolution = "ball.C5";

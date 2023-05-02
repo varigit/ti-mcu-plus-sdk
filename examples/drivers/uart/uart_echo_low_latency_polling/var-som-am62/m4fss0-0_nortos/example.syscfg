@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "m4fss0-0" --product "MCU_PLUS_SDK@07.03.01"
- * @versions {"tool":"1.12.1+2446"}
+ * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "m4fss0-0" --product "MCU_PLUS_SDK_AM62x@08.06.00"
+ * @versions {"tool":"1.15.0+2826"}
  */
 
 /**
@@ -24,8 +24,10 @@ const mpu_armv72      = mpu_armv7.addInstance();
 /**
  * Write custom configuration values to the imported modules.
  */
-uart1.$name      = "CONFIG_UART_CONSOLE";
-uart1.intrEnable = "DISABLE";
+uart1.$name                   = "CONFIG_UART_CONSOLE";
+uart1.intrEnable              = "DISABLE";
+uart1.useMcuDomainPeripherals = false;
+uart1.UART.$assign            = "USART2";
 
 addr_translate1.$name     = "CONFIG_ADDR_TRANSLATE_REGION0";
 addr_translate1.localAddr = 0x80000000;
@@ -54,6 +56,5 @@ mpu_armv72.size  = 18;
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-uart1.MCU_UART.$suggestSolution     = "MCU_USART0";
-uart1.MCU_UART.RXD.$suggestSolution = "ball.B5";
-uart1.MCU_UART.TXD.$suggestSolution = "ball.A5";
+uart1.UART.RXD.$suggestSolution = "ball.R24";
+uart1.UART.TXD.$suggestSolution = "ball.R25";

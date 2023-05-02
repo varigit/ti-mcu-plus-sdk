@@ -1,8 +1,8 @@
 /**
  * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
  * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
- * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "r5fss0-0" --product "MCU_PLUS_SDK@07.03.01"
- * @versions {"tool":"1.14.0+2667"}
+ * @cliArgs --device "AM62x" --package "ALW" --part "Default" --context "r5fss0-0" --product "MCU_PLUS_SDK_AM62x@08.06.00"
+ * @versions {"tool":"1.15.0+2826"}
  */
 
 /**
@@ -25,12 +25,13 @@ const mpu_armv78 = mpu_armv7.addInstance();
 /**
  * Write custom configuration values to the imported modules.
  */
-mcspi1.$name                   = "CONFIG_MCSPI0";
-mcspi1.inputSelect             = "0";
-mcspi1.useMcuDomainPeripherals = true;
-mcspi1.trMode                  = "TX_ONLY";
-mcspi1.mcspiChannel[0].$name   = "CONFIG_MCSPI_CH0";
-mcspi1.MCU_SPI.$assign         = "MCU_SPI0";
+mcspi1.$name                           = "CONFIG_MCSPI0";
+mcspi1.inputSelect                     = "0";
+mcspi1.useMcuDomainPeripherals         = true;
+mcspi1.trMode                          = "TX_ONLY";
+mcspi1.mcspiChannel[0].$name           = "CONFIG_MCSPI_CH0";
+mcspi1.mcspiChannel[0].MCU_CSn.$assign = "ball.B8";
+mcspi1.MCU_SPI.$assign                 = "MCU_SPI0";
 
 clock.instance = "TIMER1";
 
@@ -78,7 +79,6 @@ mpu_armv78.$name    = "HSM_RAM";
  * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
  * re-solve from scratch.
  */
-mcspi1.mcspiChannel[0].MCU_CSn.$suggestSolution  = "ball.E8";
 mcspi1.MCU_SPI.CLK.$suggestSolution              = "ball.A7";
 mcspi1.MCU_SPI.D0.$suggestSolution               = "ball.D9";
 mcspi1.MCU_SPI.D1.$suggestSolution               = "ball.C9";
